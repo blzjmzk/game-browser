@@ -13,7 +13,6 @@ function App() {
         <NavBar />
       </GridItem>
       <Show above="lg">
-        {/* elementy widoczne >1024px */}
         <GridItem area="aside" bg="gold">
           Aside
         </GridItem>
