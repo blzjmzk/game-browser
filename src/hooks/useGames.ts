@@ -12,7 +12,7 @@ export interface Game {
   id: number;
   name: string;
   background_image: string;
-  parent_platforms: { platform: Platform} []//problem designu tego api, ze wyglada w ten sposób
+  parent_platforms: { platform: Platform }[]; //problem designu tego api, ze wyglada w ten sposób
   metacritic: number;
 }
 
@@ -23,24 +23,28 @@ interface FetchGamesResponse {
 }
 
 const useGames = () => {
-
   const [games, setGames] = useState<Game[]>([]);
   const [error, setError] = useState("");
+  const [isLoading, setLoading] = useState(false); //potrzebne do wyświetlania szkieletów kard przy ładowaniu
 
   useEffect(() => {
     const controller = new AbortController();
-
+    setLoading(true);
     apiClient
       .get<FetchGamesResponse>("/games", { signal: controller.signal })
-      .then((res) => setGames(res.data.results))
+      .then((res) => {
+        setGames(res.data.results);
+        setLoading(false);
+      })
       .catch((err) => {
         if (err instanceof CanceledError) return;
         setError(err.message);
+        setLoading(false);
       });
 
     return () => controller.abort(); //cleanup function
   }, []);
-  return { games, error }; //zwracamy te własności by wykorzystać w aplikacji
+  return { games, error, isLoading }; //zwracamy te własności by wykorzystać w aplikacji
 };
 
 export default useGames;
