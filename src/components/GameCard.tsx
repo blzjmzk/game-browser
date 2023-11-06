@@ -4,7 +4,7 @@ import PlatformIconList from "./PlatformIconList";
 import CriticScore from "./CriticScore";
 import getCroppedImageUrl from "../services/image-url";
 
-//zapewniamy game object jako prop do tego komponentu
+//zapewniamy game object jako prop do tego komponentu z effect hook
 interface Props {
   game: Game;
 }
