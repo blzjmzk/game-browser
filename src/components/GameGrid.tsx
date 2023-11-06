@@ -18,14 +18,14 @@ const GameGrid = () => {
         {/* w columns ustalamy liczbę wyświetlanych kolumn w zaleznosci od wielkości urządzenia */}
         {isLoading &&
           skeletons.map((skeleton) => (
-            <GameCardContainer>
-              <GameCardSkeleton key={skeleton} />
+            <GameCardContainer key={skeleton}>
+              <GameCardSkeleton />
             </GameCardContainer>
           ))}
         {/* jesli is loading jest prawdziwe to mapujemy skeletons w karty skeletons  */}
         {data.map((game) => (
-          <GameCardContainer>
-            <GameCard key={game.id} game={game} />
+          <GameCardContainer key={game.id}>
+            <GameCard game={game} />
           </GameCardContainer>
         ))}
       </SimpleGrid>

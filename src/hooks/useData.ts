@@ -19,7 +19,7 @@ const useData = <T>(endpoint: string) => {
     apiClient
       .get<FetchResponse<T>>(endpoint, { signal: controller.signal })
       .then((res) => {
-        setGenres(res.data.results);
+        setData(res.data.results);
         setLoading(false);
       })
       .catch((err) => {
@@ -33,4 +33,4 @@ const useData = <T>(endpoint: string) => {
   return { data, error, isLoading }; //zwracamy te własności by wykorzystać w aplikacji
 };
 
-export default useGenres;
+export default useData;
