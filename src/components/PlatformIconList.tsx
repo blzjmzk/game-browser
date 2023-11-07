@@ -20,7 +20,8 @@ interface Props {
 const PlatformIconList = ({ platforms }: Props) => {
   //przyporządkowujemy ikony nazwom platform. Nie robimy ifami, ale uzyjemy obiektu jako mapy
   //mapujemy slug'i, poniewaz nie powinny się zmieniać
-  const iconMap: { [key: string]: IconType } = { //index signuture (niezaleznie od nazw key) dla typescripta + typ keys z biblioteki ikon
+  const iconMap: { [key: string]: IconType } = {
+    //index signuture (niezaleznie od nazw key) dla typescripta + typ keys z biblioteki ikon
     pc: FaWindows,
     playstation: FaPlaystation,
     xbox: FaXbox,
@@ -33,10 +34,10 @@ const PlatformIconList = ({ platforms }: Props) => {
   };
 
   return (
-    <HStack marginY={1}> 
-        {/* wyświetlamy ikony horyzontalnie + verical margin 1x theme space*/}
+    <HStack marginY={1}>
+      {/* wyświetlamy ikony horyzontalnie + verical margin 1x theme space*/}
       {platforms.map((platform) => (
-        <Icon as={iconMap[platform.slug]} color='gray.500' />
+        <Icon key={platform.id} as={iconMap[platform.slug]} color="gray.500" />
         // <Text>{platform.name}</Text> -> wyświetlanie nazw platform
       ))}
     </HStack>

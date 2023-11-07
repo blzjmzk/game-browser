@@ -1,4 +1,4 @@
-import { CanceledError } from "axios";
+import { AxiosRequestConfig, CanceledError } from "axios";
 import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
 
@@ -7,7 +7,7 @@ interface FetchResponse<T> {
   results: T[];
 }
 
-const useData = <T>(endpoint: string) => {
+const useData = <T>(endpoint: string, requestConfig?: AxiosRequestConfig, deps?: any[]) => {
   //generyczny parametr typu
   const [data, setData] = useState<T[]>([]);
   const [error, setError] = useState("");
@@ -17,7 +17,7 @@ const useData = <T>(endpoint: string) => {
     const controller = new AbortController();
     setLoading(true);
     apiClient
-      .get<FetchResponse<T>>(endpoint, { signal: controller.signal })
+      .get<FetchResponse<T>>(endpoint, { signal: controller.signal, ...requestConfig }) //drugi argument to axios request config object
       .then((res) => {
         setData(res.data.results);
         setLoading(false);
@@ -29,7 +29,8 @@ const useData = <T>(endpoint: string) => {
       });
 
     return () => controller.abort(); //cleanup function
-  }, []);
+  }, deps ? [...deps] : []);
+  //jesli jest truthy spread, jesli nie pusta -> musimy to dodac bo jest optional, więc moze byc undefined a nie mozna spread undefined
   return { data, error, isLoading }; //zwracamy te własności by wykorzystać w aplikacji
 };
 
