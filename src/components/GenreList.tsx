@@ -1,7 +1,6 @@
 import {
   HStack,
   Spinner,
-  Text,
   Image,
   List,
   ListItem,

@@ -1,11 +1,8 @@
 import {
   Box,
-  Button,
-  ButtonGroup,
   Flex,
   Grid,
   GridItem,
-  HStack,
   Show,
 } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
