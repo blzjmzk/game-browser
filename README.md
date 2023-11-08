@@ -1,6 +1,6 @@
 # Game Hub App
 
-- frontend application connected to backend (rawg.io API)
+- frontend application connected to API (rawg.io)
 - built in React and Typescript
 - displaying elements
 - filtering, sorting and searching elements
