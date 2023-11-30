@@ -1,8 +1,10 @@
-# Game Hub App
+# Game Hub concept app
 
 - frontend application connected to API (rawg.io)
 - built in React and Typescript
-- displaying elements
-- filtering, sorting and searching elements
-- axios HTTP client used
-- chakra UI & react icons
+- fetching data using Axios (reusable API client) 
+- caching and managing server data with React Query (custom query hooks)
+- displaying data on infinite scroll with React Query
+- filtering, sorting and searching data
+- avoiding prop drilling and menaging states on client side with Zustand (managing Query Object in Zustand store)
+- styling: Chakra UI & React Icons
