@@ -7,4 +7,5 @@
 - displaying data on infinite scroll with React Query
 - filtering, sorting and searching data
 - avoiding prop drilling and menaging states on client side with Zustand (managing Query Object in Zustand store)
+- routing with React Router
 - styling: Chakra UI & React Icons
