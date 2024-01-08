@@ -26,9 +26,6 @@ const GameCard = ({ game }: Props) => {
           <Link to={/games/ + game.slug}>
             {game.name} <Emoji rating={game.rating_top} />
           </Link>
-          {game.esrb_rating && game.esrb_rating.name && (
-            <p>Ocena ESRB: {game.esrb_rating.name}</p>
-          )}
         </Heading>
       </CardBody>
     </Card>

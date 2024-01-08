@@ -1,4 +1,4 @@
-import {create} from 'zustand';
+import { create } from "zustand";
 
 interface GameQuery {
   genreId?: number;
@@ -16,7 +16,9 @@ interface GameQueryStore {
 }
 
 const useGameQueryStore = create<GameQueryStore>((set) => ({
-  gameQuery: {},
+  gameQuery: {
+    sortOrder: "-rating",
+  },
   setSearchText: (searchText) => set(() => ({ gameQuery: { searchText } })),
   setGenreId: (genreId) =>
     set((store) => ({ gameQuery: { ...store.gameQuery, genreId } })),
