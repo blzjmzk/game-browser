@@ -2,13 +2,11 @@ import {
   Button,
   HStack,
   Heading,
-  Image,
   List,
   ListItem,
   Spinner,
 } from "@chakra-ui/react";
 import useGenres from "../hooks/useGenres";
-import getCroppedImageUrl from "../services/image-url";
 import useGameQueryStore from "../store";
 
 const GenreList = () => {
@@ -28,24 +26,16 @@ const GenreList = () => {
         {/* lista bez punktorów */}
         {data?.results.map((genre) => (
           <ListItem key={genre.id} paddingY="5px">
-            <HStack>
-              <Image
-                boxSize="32px"
-                borderRadius={8}
-                objectFit="cover"
-                src={getCroppedImageUrl(genre.image_background)}
-              />
-              <Button
-                whiteSpace="normal"
-                textAlign="left"
-                fontWeight={genre.id === selectedGenreId ? "bold" : "normal"}
-                onClick={() => setSelectedGenreID(genre.id)}
-                fontSize="lg"
-                variant="link"
-              >
-                {genre.name}
-              </Button>
-            </HStack>
+            <Button
+              whiteSpace="normal"
+              textAlign="left"
+              fontWeight={genre.id === selectedGenreId ? "bold" : "normal"}
+              onClick={() => setSelectedGenreID(genre.id)}
+              fontSize="lg"
+              variant="link"
+            >
+              {genre.name}
+            </Button>
           </ListItem>
         ))}
       </List>
