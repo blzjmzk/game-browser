@@ -1,11 +1,4 @@
-import {
-  Button,
-  HStack,
-  Heading,
-  List,
-  ListItem,
-  Spinner,
-} from "@chakra-ui/react";
+import { Button, Heading, List, ListItem, Spinner } from "@chakra-ui/react";
 import useGenres from "../hooks/useGenres";
 import useGameQueryStore from "../store";
 
