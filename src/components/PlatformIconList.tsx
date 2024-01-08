@@ -5,7 +5,7 @@ import {
   FaApple,
   FaLinux,
   FaAndroid,
-} from "react-icons/fa";
+} from "react-icons/fa"; //	CC BY 4.0 License
 import { MdPhoneIphone } from "react-icons/md";
 import { SiNintendo } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
